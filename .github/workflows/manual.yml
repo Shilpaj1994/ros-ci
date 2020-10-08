@@ -25,7 +25,10 @@ jobs:
         run: |
           cd ~/catkin_ws/src
           cp -r $GITHUB_WORKSPACE .
-          /bin/bash -c "source ../devel/setup.bash && catkin_make"
+          pwd
+          cd ..
+          source devel/setup.bash
+          catkin_make
       - name: Lint
         run: |
           cd ~/catkin_ws/src
