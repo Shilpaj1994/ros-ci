@@ -19,6 +19,7 @@ jobs:
           /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
       - name: Build package
         run: |
+          mkdir -p ~/catkin_ws/src/ros-ci
           cd ~/catkin_ws/src/ros-ci
           cp -r $GITHUB_WORKSPACE .
           /bin/bash -c "source ../../devel/setup.bash && catkin_make"
