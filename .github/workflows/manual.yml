@@ -17,7 +17,11 @@ jobs:
           mkdir -p ~/catkin_ws/src/ros-ci
           cd ~/catkin_ws
           /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
+      - name: Build package
+        run: |
           cd src/ros-ci
-          cp $GITHUB_WORKSPACE .
+          cp -r $GITHUB_WORKSPACE .
+      - name: Lint
+        run: |
           /bin/bash -c "source ../../devel/setup.bash && catkin_make"
           catkin_make ros-ci --catkin-make-args roslint
