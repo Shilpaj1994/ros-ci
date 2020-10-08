@@ -24,4 +24,4 @@ jobs:
           /bin/bash -c "source devel/setup.bash && catkin_make"
       - name: Lint
         run: |
-          catkin_make ros-ci --catkin-make-args roslint
+          catkin_make ros-ci
