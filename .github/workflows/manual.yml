@@ -11,21 +11,15 @@ jobs:
           cd / && ./ros_entrypoint.sh
           sudo apt-get update
           sudo apt-get install -y python3-pip
-          sudo apt-get install -y ros-noetic-catkin python3-catkin-tools
-          sudo apt-get install -y ros-noetic-cv-bridge
           sudo apt-get install -y ros-noetic-roslint
-          pip3 install bluerobotics-ping
       - name: Setup catkin workspace
         run: |
-          mkdir -p ~/catkin_ws/src
+          mkdir -p ~/catkin_ws/src/ros-ci
           cd ~/catkin_ws
           /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
-      - name: Lint
-        run: |
-          cd ~/catkin_ws/src
-          catkin_make ros-ci --catkin-make-args roslint
-      - name: Build package
-        run: |
-          cd ~/catkin_ws/src
+
+          cd src/ros-ci
           cp -r $GITHUB_WORKSPACE .
-          /bin/bash -c "source ../devel/setup.bash && catkin_make"
+          /bin/bash -c "source ../../devel/setup.bash && catkin_make"
+
+          catkin_make ros-ci --catkin-make-args roslint
