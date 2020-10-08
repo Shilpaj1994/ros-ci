@@ -9,11 +9,11 @@ jobs:
       - name: Install catkin & package dependencies
         run: |
           cd / && ./ros_entrypoint.sh
-          apt-get update
-          apt-get install -y python-pip
-          apt-get install -y ros-noetic-catkin python-catkin-tools
-          apt-get install -y ros-noetic-cv-bridge
-          apt-get install -y ros-noetic-roslint
+          sudo apt-get update
+          sudo apt-get install -y python-pip
+          sudo apt-get install -y ros-noetic-catkin python-catkin-tools
+          sudo apt-get install -y ros-noetic-cv-bridge
+          sudo apt-get install -y ros-noetic-roslint
           pip install bluerobotics-ping
       - name: Setup catkin workspace
         run: |
