@@ -23,7 +23,7 @@ jobs:
           
       - name: Build package
         run: |
-          cd ~/catkin_ws
+          cd ~/catkin_ws/src
           cp -r $GITHUB_WORKSPACE .
           /bin/bash -c "source ../devel/setup.bash && catkin_make"
       - name: Lint
