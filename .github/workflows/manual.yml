@@ -24,4 +24,6 @@ jobs:
           /bin/bash -c "source devel/setup.bash && catkin_make"
       - name: Lint
         run: |
+          cd ~/catkin_ws
+          /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
           catkin_make ros-ci
