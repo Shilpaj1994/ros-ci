@@ -23,7 +23,7 @@ jobs:
       - name: Lint
         run: |
           cd ~/catkin_ws/src
-          catkin build ros-ci --catkin-make-args roslint
+          catkin_make ros-ci --catkin-make-args roslint
       - name: Build package
         run: |
           cd ~/catkin_ws/src
