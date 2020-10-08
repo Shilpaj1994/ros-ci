@@ -20,7 +20,8 @@ jobs:
       - name: Build package
         run: |
           cp -r $GITHUB_WORKSPACE ~/catkin_ws/src/ros-ci
-          /bin/bash -c "source ../../devel/setup.bash && catkin_make"
+          cd ~/catkin_ws/
+          /bin/bash -c "source devel/setup.bash && catkin_make"
       - name: Lint
         run: |
           catkin_make ros-ci --catkin-make-args roslint
